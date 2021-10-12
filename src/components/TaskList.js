@@ -26,9 +26,9 @@ function List() {
 
   return (
     <div>
-      <ul class="list-group">
+      <ul className="list-group">
         {data.tasks.map((task) => {
-          return <Task task={task} />;
+          return <Task task={task} key={task.id} />;
         })}
       </ul>
     </div>

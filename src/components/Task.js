@@ -7,13 +7,25 @@ export default function Task(props) {
   let task = props.task;
 
   return (
-    <li class="list-group-item">
+    <li className="list-group-item" key={task.id}>
       <div>
-        {!task.isCompleted && <i className="bi bi-circle mr-3"></i>}
-        {task.isCompleted && <i className="bi bi-check-circle mr-3"></i>}
+        <button
+          className="btn btn-link"
+          id="taskCompleteButton"
+          key="taskCompleteButton"
+          onClick={() => handleCompleteButtonClick(task)}
+          type="button"
+        >
+          {!task.isCompleted && <i className="bi bi-circle"></i>}
+          {task.isCompleted && <i className="bi bi-check-circle"></i>}
+        </button>
         <strong>{task.title}</strong>
       </div>
       <small className="font-weight-light text-muted">{task.description}</small>
     </li>
   );
+}
+
+function handleCompleteButtonClick(task) {
+  console.log(task.title);
 }
