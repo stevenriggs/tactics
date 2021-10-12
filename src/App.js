@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 // App components.
-import List from "./components/List";
+import TaskList from "./components/TaskList";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
       </div>
       <div class="row">
         <div class="col">
-          <List />
+          <TaskList />
         </div>
       </div>
     </div>

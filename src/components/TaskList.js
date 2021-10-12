@@ -5,7 +5,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 
 const queryClient = new QueryClient();
 
-export default function List() {
+export default function TaskList() {
   return (
     <QueryClientProvider client={queryClient}>
       <TaskTable />
