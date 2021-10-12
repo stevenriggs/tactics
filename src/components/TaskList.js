@@ -20,6 +20,11 @@ function List() {
     fetch(window.REACT_APP_API_URL).then((res) => res.json())
   );
 
+  if (window.REACT_APP_DEBUG)
+    console.log("TaskList error: " + JSON.stringify(error));
+  if (window.REACT_APP_DEBUG)
+    console.log("TaskList data: " + JSON.stringify(data));
+
   if (isLoading) return "Loading...";
 
   if (error) return "An error has occurred: " + error.message;
@@ -28,20 +33,22 @@ function List() {
     <div className="container container-fluid m-0 p-0">
       <div className="row no-gutters mb-3">
         <div className="col">
-          <button type="button" class="btn btn-sm btn-primary">
+          <button type="button" className="btn btn-sm btn-primary">
             <i className="bi bi-plus-circle mr-1"></i> Add a task
           </button>
         </div>
       </div>
-      <div className="row no-gutters">
-        <div className="col">
-          <ul className="list-group">
-            {data.tasks.map((task) => {
-              return <Task task={task} key={task.id} />;
-            })}
-          </ul>
+      {data.tasks && (
+        <div className="row no-gutters">
+          <div className="col">
+            <ul className="list-group">
+              {data.tasks.map((task) => {
+                return <Task task={task} key={task.id} />;
+              })}
+            </ul>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
