@@ -6,8 +6,13 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 export default function Task(props) {
   let task = props.task;
 
+  var listGroupItemClass = "list-group-item";
+  if (task.isCompleted) {
+    listGroupItemClass = listGroupItemClass + " list-group-item-secondary";
+  }
+
   return (
-    <li className="list-group-item" key={task.id}>
+    <li className={listGroupItemClass} key={task.id}>
       <div className="container container-fluid">
         <div className="row no-gutters">
           <div className="col-1">
