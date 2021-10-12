@@ -8,12 +8,12 @@ const queryClient = new QueryClient();
 export default function TaskList() {
   return (
     <QueryClientProvider client={queryClient}>
-      <TaskTable />
+      <List />
     </QueryClientProvider>
   );
 }
 
-function TaskTable() {
+function List() {
   const { isLoading, error, data } = useQuery("repoData", () =>
     fetch(window.REACT_APP_API_URL).then((res) => res.json())
   );
