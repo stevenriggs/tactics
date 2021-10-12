@@ -5,7 +5,7 @@ import List from "./components/List";
 
 function App() {
   return (
-    <div class="container">
+    <div class="container mt-3">
       <div class="row">
         <div class="col">
           <h2>Tactics</h2>
