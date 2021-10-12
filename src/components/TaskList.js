@@ -29,7 +29,7 @@ function List() {
       <div className="row no-gutters mb-3">
         <div className="col">
           <button type="button" class="btn btn-sm btn-primary">
-            Add +
+            <i className="bi bi-plus-circle mr-1"></i> Add a task
           </button>
         </div>
       </div>
