@@ -5,8 +5,18 @@ import List from "./components/List";
 
 function App() {
   return (
-    <div className="App">
-      <List />
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h2>Tactics</h2>
+          <hr />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <List />
+        </div>
+      </div>
     </div>
   );
 }
