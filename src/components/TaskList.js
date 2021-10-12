@@ -33,7 +33,11 @@ function List() {
     <div className="container container-fluid m-0 p-0">
       <div className="row no-gutters mb-3">
         <div className="col">
-          <button type="button" className="btn btn-sm btn-primary">
+          <button
+            type="button"
+            className="btn btn-sm btn-primary"
+            disabled={!data.tasks}
+          >
             <i className="bi bi-plus-circle mr-1"></i> Add a task
           </button>
         </div>
