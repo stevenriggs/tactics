@@ -8,20 +8,36 @@ export default function Task(props) {
 
   return (
     <li className="list-group-item" key={task.id}>
-      <div>
-        <button
-          className="btn btn-link"
-          id="taskCompleteButton"
-          key="taskCompleteButton"
-          onClick={() => handleCompleteButtonClick(task)}
-          type="button"
-        >
-          {!task.isCompleted && <i className="bi bi-circle"></i>}
-          {task.isCompleted && <i className="bi bi-check-circle"></i>}
-        </button>
-        <strong>{task.title}</strong>
+      <div className="container container-fluid">
+        <div className="row">
+          <div className="col-1">
+            <button
+              className="btn btn-link"
+              id="taskCompleteButton"
+              key="taskCompleteButton"
+              onClick={() => handleCompleteButtonClick(task)}
+              type="button"
+            >
+              {!task.isCompleted && <i className="bi bi-circle"></i>}
+              {task.isCompleted && <i className="bi bi-check-circle"></i>}
+            </button>
+          </div>
+          <div className="col-11">
+            <div className="row">
+              <div className="col">
+                <strong>{task.title}</strong>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col">
+                <small className="font-weight-light text-muted">
+                  {task.description}
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <small className="font-weight-light text-muted">{task.description}</small>
     </li>
   );
 }
