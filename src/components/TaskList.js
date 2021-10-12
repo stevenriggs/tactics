@@ -25,12 +25,23 @@ function List() {
   if (error) return "An error has occurred: " + error.message;
 
   return (
-    <div>
-      <ul className="list-group">
-        {data.tasks.map((task) => {
-          return <Task task={task} key={task.id} />;
-        })}
-      </ul>
+    <div className="container container-fluid m-0 p-0">
+      <div className="row no-gutters mb-3">
+        <div className="col">
+          <button type="button" class="btn btn-sm btn-primary">
+            Add +
+          </button>
+        </div>
+      </div>
+      <div className="row no-gutters">
+        <div className="col">
+          <ul className="list-group">
+            {data.tasks.map((task) => {
+              return <Task task={task} key={task.id} />;
+            })}
+          </ul>
+        </div>
+      </div>
     </div>
   );
 }
