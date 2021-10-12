@@ -9,7 +9,7 @@ export default function Task(props) {
   return (
     <li className="list-group-item" key={task.id}>
       <div className="container container-fluid">
-        <div className="row">
+        <div className="row no-gutters">
           <div className="col-1">
             <button
               className="btn btn-link"
