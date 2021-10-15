@@ -15,7 +15,7 @@ export default function AddTaskModal(props) {
 
     setValidated(true);
 
-    // TODO: POST NEW TASK HERE
+    // TODO: POST NEW TASK HERE react-query
   };
 
   return (
