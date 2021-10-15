@@ -1,23 +1,25 @@
 import React from "react";
 import "./App.css";
+// react-boostrap
+import { Container, Row, Col } from "react-bootstrap";
 // App components.
 import TaskList from "./components/TaskList";
 
 function App() {
   return (
-    <div className="container mt-3">
-      <div className="row">
-        <div className="col">
+    <Container className="mt-3">
+      <Row>
+        <Col>
           <h2>Tactics</h2>
           <hr />
-        </div>
-      </div>
-      <div className="row">
-        <div className="col">
+        </Col>
+      </Row>
+      <Row>
+        <Col>
           <TaskList />
-        </div>
-      </div>
-    </div>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 

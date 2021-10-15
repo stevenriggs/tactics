@@ -1,5 +1,6 @@
 import React from "react";
 // Third party.
+import { Container, Row, Col, Button } from "react-bootstrap";
 // import { QueryClient, QueryClientProvider, useQuery } from "react-query";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
@@ -13,9 +14,9 @@ export default function Task(props) {
 
   return (
     <li className={listGroupItemClass} key={task.id}>
-      <div className="container container-fluid">
-        <div className="row no-gutters">
-          <div className="col-1">
+      <Container fluid>
+        <Row>
+          <Col xs={1}>
             <button
               className="btn btn-link"
               id="taskCompleteButton"
@@ -26,23 +27,23 @@ export default function Task(props) {
               {!task.isCompleted && <i className="bi bi-circle"></i>}
               {task.isCompleted && <i className="bi bi-check-circle"></i>}
             </button>
-          </div>
-          <div className="col-11">
-            <div className="row">
-              <div className="col">
+          </Col>
+          <Col xs={11}>
+            <Row>
+              <Col>
                 <strong>{task.title}</strong>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col">
+              </Col>
+            </Row>
+            <Row>
+              <Col>
                 <small className="font-weight-light text-muted">
                   {task.description}
                 </small>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+      </Container>
     </li>
   );
 }

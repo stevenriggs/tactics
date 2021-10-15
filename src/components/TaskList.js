@@ -1,21 +1,26 @@
 import React from "react";
+// react-boostrap
+import { Container, Row, Col, Button } from "react-bootstrap";
 // Third party.
 import { QueryClient, QueryClientProvider, useQuery } from "react-query";
 import "bootstrap-icons/font/bootstrap-icons.css";
 // App components.
 import Task from "./Task";
+import AddTaskModal from "./AddTaskModal";
 
 const queryClient = new QueryClient();
 
 export default function TaskList() {
+  const [addModalShow, setAddModalShow] = React.useState(false);
+
   return (
     <QueryClientProvider client={queryClient}>
-      <List />
+      <List addModalShow={addModalShow} setAddModalShow={setAddModalShow} />
     </QueryClientProvider>
   );
 }
 
-function List() {
+function List(props) {
   const { isLoading, error, data } = useQuery("repoData", () =>
     fetch(window.REACT_APP_API_URL).then((res) => res.json())
   );
@@ -30,18 +35,20 @@ function List() {
   if (error) return "An error has occurred: " + error.message;
 
   return (
-    <div className="container container-fluid m-0 p-0">
-      <div className="row no-gutters mb-3">
-        <div className="col">
-          <button
-            type="button"
-            className="btn btn-sm btn-primary"
+    <Container fluid className="m-0 p-0">
+      <Row className="mb-3">
+        <Col>
+          <Button
             disabled={!data.tasks}
+            onClick={() => props.setAddModalShow(true)}
+            size="sm"
+            type="button"
+            variant="primary"
           >
             <i className="bi bi-plus-circle mr-1"></i> Add a task
-          </button>
-        </div>
-      </div>
+          </Button>
+        </Col>
+      </Row>
       {data.tasks && (
         <div className="row no-gutters">
           <div className="col">
@@ -53,6 +60,12 @@ function List() {
           </div>
         </div>
       )}
-    </div>
+      {props.addModalShow && (
+        <AddTaskModal
+          show={props.addModalShow}
+          onHide={() => props.setAddModalShow(false)}
+        />
+      )}
+    </Container>
   );
 }
